@@ -81,9 +81,9 @@ public class Worker {
                 "Erasers: " + eraserCount);
     }
 
-    private void addSupply(int count, Class c) throws IllegalAccessException, InstantiationException {
+    private void addSupply(int count, Class <? extends OfficeSupplies>c) throws IllegalAccessException, InstantiationException {
         for (int i = 0; i < count; i++) {
-            officeSuppliesList.add((OfficeSupplies) c.newInstance());
+            officeSuppliesList.add(c.newInstance());
         }
     }
 
