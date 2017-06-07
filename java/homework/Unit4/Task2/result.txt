@@ -1,0 +1,13 @@
+new=1
+private=6
+package=1
+void=10
+import=3
+this=7
+for=5
+throws=4
+float=1
+int=12
+public=10
+extends=1
+class=7
