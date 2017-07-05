@@ -1,0 +1,19 @@
+class MedicalStaff
+class Doctor extends MedicalStaff
+class Nurse extends MedicalStaff
+class HeadDoctor extends Doctor
+
+Doctor doctor1=new Doctor(); // корректно
+Doctor doctor2=new MedicalStaff(); //некорректно (сужающее приведение)
+Doctor doctor3=new HeadDoctor(); //корректно
+Object objects1=new HeadDoctor();//корректно
+HeadDoctor doctor5=new Object();//некорректно (сужающее приведение)
+Doctor doctor6=new Nurse();//неприводимые типы, в дереве наследования расположены параллельно
+Nurse nurse=new Doctor();//некорректно (аналогично предыдущему)
+Object object2=new Nurse();//корректно
+
+List<Doctor> list1=new ArrayList<Doctor>();//корректно, можно использовать Diamond оператор (new ArraysList<>();)
+List<MedicalStaff> list2=new ArrayList<Doctor>();//некорректно, типы в дженериках должны либо совпадать, либо нужно использовать маски <?>
+List<Doctor> list3=new ArrayList<MedicalStaff>();//некорректно, по вышеуказанной причине
+List<Object> list4=new ArrayList<Doctor>();//некорректно, тоже по вышеуказанной причине
+List<Object> list5=new ArrayList<Object>();//корректно, можно здесь дженерики вообще не использовать, тк по умолчанию в коллекциях находятся объекты типа Object
